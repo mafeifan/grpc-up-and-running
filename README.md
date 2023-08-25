@@ -1,7 +1,3 @@
-
-![gRPC Up and Running - Cover](./images/grpc-cover.png)
-
-
 ## Welcome
 Welcome to the resource repository of the book "gRPC - Up and Running". 
 
