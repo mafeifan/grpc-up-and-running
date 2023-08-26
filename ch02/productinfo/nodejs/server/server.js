@@ -1,14 +1,15 @@
 var PROTO_PATH = __dirname + '/../../proto/product_info.proto';
 var grpc = require('grpc');
+// proto 文件需要 proto-loader 加载
 var protoLoader = require('@grpc/proto-loader');
-var uuidv4 = require('uuid/v4');
-
+const {v4: uuidv4} = require('uuid');
 let productMap = new Map();
 
 // Suggested options for similarity to existing grpc.load behavior
 var packageDefinition = protoLoader.loadSync(
     PROTO_PATH,
-    {keepCase: true,
+    {
+        keepCase: true,
         longs: String,
         enums: String,
         defaults: true,
@@ -53,6 +54,9 @@ function getServer() {
     return server;
 }
 
-var productInfoServer = getServer();
-productInfoServer.bind('0.0.0.0:50051', grpc.ServerCredentials.createInsecure());
-productInfoServer.start();
+var server = getServer();
+var host = '0.0.0.0:50051'
+server.bindAsync(host, grpc.ServerCredentials.createInsecure(), () => {
+    server.start()
+    console.log('grpc server started, bind addr => ' + host)
+})
