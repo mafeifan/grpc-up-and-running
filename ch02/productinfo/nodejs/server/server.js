@@ -1,5 +1,5 @@
 var PROTO_PATH = __dirname + '/../../proto/product_info.proto';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 // proto 文件需要 proto-loader 加载
 var protoLoader = require('@grpc/proto-loader');
 const {v4: uuidv4} = require('uuid');

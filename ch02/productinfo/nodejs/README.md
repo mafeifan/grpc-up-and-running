@@ -19,5 +19,5 @@ node client.js
 
 #### Install node module
 ```shell script
-$ npm install async grpc @grpc/proto-loader uuid
+$ npm install async @grpc/proto-loader @grpc/grpc-js uuid
 ```

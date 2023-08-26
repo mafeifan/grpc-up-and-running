@@ -1,5 +1,5 @@
 var PROTO_PATH = __dirname + '/../../proto/product_info.proto';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var async = require('async');
 var protoLoader = require('@grpc/proto-loader');
 
