@@ -5,6 +5,8 @@ var protoLoader = require('@grpc/proto-loader');
 const {v4: uuidv4} = require('uuid');
 let productMap = new Map();
 
+// define proto -> proto-loader -> package define -> proto descriptor -> object
+
 // Suggested options for similarity to existing grpc.load behavior
 var packageDefinition = protoLoader.loadSync(
     PROTO_PATH,
@@ -24,7 +26,9 @@ function addProduct(call, callback) {
     var newProduct = call.request;
     var id = uuidv4();
     newProduct.id = id;
+    // 存到map里，实际应该存到数据库
     productMap.set(id, newProduct);
+    console.log('new product request', JSON.stringify(newProduct))
     // Constructing the output
     var productID = {
         value: id,

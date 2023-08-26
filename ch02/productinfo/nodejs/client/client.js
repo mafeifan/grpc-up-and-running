@@ -21,6 +21,7 @@ var client = new productInfo.ProductInfo('localhost:50051',
 let productID = 0;
 
 function addProduct(cb) {
+    // 客户端 请求体
     client.addProduct({
         name: "Apple iPhone 11",
         description: "Meet Apple iPhone 11. All-new dual-camera system with Ultra Wide and Night mode.",

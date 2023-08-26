@@ -15,26 +15,9 @@ node client.js
 ```
 
 
-## Additional Information
-
 ### Install required dependencies
 
-#### Install grpc module
+#### Install node module
 ```shell script
-$ npm install grpc
-```
-
-#### Install proto-loader module
-```shell script
-$ npm install @grpc/proto-loader
-```
-
-#### Install uuid module
-```shell script
-$ npm install uuid
-```
-
-#### Install async module
-```shell script
-$ npm install async
+$ npm install async grpc @grpc/proto-loader uuid
 ```
