@@ -63,7 +63,7 @@ public class OrderMgtServiceImpl extends OrderManagementGrpc.OrderManagementImpl
     public void addOrder(OrderManagementOuterClass.Order request, StreamObserver<StringValue> responseObserver) {
         logger.info("Order Added - ID: " + request.getId() + ", Destination : " + request.getDestination());
         orderMap.put(request.getId(), request);
-        StringValue id = StringValue.newBuilder().setValue("100500").build();
+        StringValue id = StringValue.newBuilder().setValue("101").build();
         responseObserver.onNext(id);
         responseObserver.onCompleted();
     }
