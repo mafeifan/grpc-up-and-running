@@ -2,6 +2,7 @@ package ecommerce;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.protobuf.services.ProtoReflectionService;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,12 +16,13 @@ public class ProductInfoServer {
     private Server server;
 
     private void start() throws IOException {
-        File certFile = Paths.get("secure-channel", "certs", "server.crt").toFile();
-        File keyFile = Paths.get("secure-channel", "certs", "server.pem").toFile();
+        File certFile = Paths.get("ch06", "secure-channel", "certs", "server.crt").toFile();
+        File keyFile = Paths.get("ch06", "secure-channel", "certs", "server.pem").toFile();
         /* The port on which the server should run */
         int port = 50051;
         server = ServerBuilder.forPort(port)
                 .addService(new ProductInfoImpl())
+                .addService(ProtoReflectionService.newInstance())
                 .useTransportSecurity(certFile, keyFile)
                 .build()
                 .start();

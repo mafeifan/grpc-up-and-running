@@ -19,7 +19,7 @@ public class ProductInfoClient {
     private static final Logger logger = Logger.getLogger(ProductInfoClient.class.getName());
 
     public static void main(String[] args) throws SSLException {
-        File certFile = Paths.get("secure-channel", "certs", "server.crt").toFile();
+        File certFile = Paths.get("ch06", "secure-channel", "certs", "server.crt").toFile();
         SslContext sslContext = GrpcSslContexts.forClient().trustManager(certFile).build();
         ManagedChannel channel = NettyChannelBuilder.forAddress("localhost", 50051)
                 .useTransportSecurity()
