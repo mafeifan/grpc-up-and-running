@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: grpcserver
+  namespace: { { .Values.namespace } }
+  annotations:
+spec:
+  replicas: { { .Values.replicaCount } }
+  selector:
+    matchLabels:
+      app: grpcserver
+  template:
+    metadata:
+      labels:
+        app: grpcserver
+    spec:
+      containers:
+        - name: grpc-demo
+          image: 'registry.cn-shanghai.aliyuncs.com/kone-cndevops/grpc-up-running:ch02'
+          ports:
+            - name: grpc-api
+              containerPort: 50051
+              protocol: TCP
+          env:
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.podIP

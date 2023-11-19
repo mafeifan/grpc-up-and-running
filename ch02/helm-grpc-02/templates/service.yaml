@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: grpcserver
+  namespace: { { .Values.namespace } }
+spec:
+  ports:
+    - protocol: TCP
+      port: 50051
+      targetPort: 50051
+  selector:
+    app: grpcserver
+  clusterIP: None
+  clusterIPs:
+    - None
+  type: ClusterIP
