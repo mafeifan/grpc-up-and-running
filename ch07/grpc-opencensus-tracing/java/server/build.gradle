@@ -8,15 +8,15 @@ repositories {
 def grpcVersion = '1.26.0'
 
 dependencies {
-    compile "io.grpc:grpc-netty:${grpcVersion}"
-    compile "io.grpc:grpc-protobuf:${grpcVersion}"
-    compile "io.grpc:grpc-stub:${grpcVersion}"
-    compile 'com.google.protobuf:protobuf-java:3.9.2'
-    compile 'io.opencensus:opencensus-api:0.24.0'
-    compile 'io.opencensus:opencensus-contrib-grpc-metrics:0.24.0'
-    compile 'io.opencensus:opencensus-impl:0.24.0'
-    compile 'io.opencensus:opencensus-exporter-trace-stackdriver:0.24.0'
-    compile 'io.opencensus:opencensus-exporter-stats-stackdriver:0.24.0'
+    implementation "io.grpc:grpc-netty:${grpcVersion}"
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    implementation 'com.google.protobuf:protobuf-java:3.9.2'
+    implementation 'io.opencensus:opencensus-api:0.24.0'
+    implementation 'io.opencensus:opencensus-contrib-grpc-metrics:0.24.0'
+    implementation 'io.opencensus:opencensus-impl:0.24.0'
+    implementation 'io.opencensus:opencensus-exporter-trace-stackdriver:0.24.0'
+    implementation 'io.opencensus:opencensus-exporter-stats-stackdriver:0.24.0'
 }
 
 buildscript {
@@ -60,7 +60,7 @@ jar {
         attributes "Main-Class": "ecommerce.ProductInfoServer"
     }
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 

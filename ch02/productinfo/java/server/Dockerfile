@@ -1,11 +1,6 @@
 # Pull base ubuntu image.
-FROM ubuntu:latest
+FROM public.ecr.aws/amazoncorretto/amazoncorretto:11
 
-RUN \
-# Update
-apt-get update -y && \
-# Install Java JRE
-apt-get install default-jre -y
 # Copy the build files to the container.
 ADD ./build/libs/server.jar server.jar
 # Document that the service listens on port 50051.

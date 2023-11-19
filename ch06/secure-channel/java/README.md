@@ -1,9 +1,16 @@
+## 测试
+
+```
+grpcurl -insecure localhost:50051 list
+```
+
 ## ``OrderManagement`` Service and Client - Java Implementation
 
 ### Building and Running Service
 
 In order to build gradle project, Go to ``Java`` project root directory location (samples) and execute
- the following shell command,
+the following shell command,
+
 ```
 ./gradlew :ch06:secure-channel:java:server:build
 ```
@@ -18,7 +25,7 @@ java -jar build/libs/server.jar
 ### Building and Running Client
 
 In order to build gradle project, Go to ``Java`` project root directory location (inside samples directory) and execute
- the following shell command,
+the following shell command,
 ```
 ./gradlew :ch06:secure-channel:java:client:build
 ```

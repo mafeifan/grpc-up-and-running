@@ -8,10 +8,10 @@ repositories {
 def grpcVersion = '1.24.1'
 
 dependencies {
-    compile "io.grpc:grpc-netty:${grpcVersion}"
-    compile "io.grpc:grpc-protobuf:${grpcVersion}"
-    compile "io.grpc:grpc-stub:${grpcVersion}"
-    compile 'com.google.protobuf:protobuf-java:3.9.2'
+    implementation "io.grpc:grpc-netty:${grpcVersion}"
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    implementation 'com.google.protobuf:protobuf-java:3.9.2'
 }
 
 buildscript {
@@ -55,7 +55,7 @@ jar {
         attributes "Main-Class": "ecommerce.ProductInfoServer"
     }
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
